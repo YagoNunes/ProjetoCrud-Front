@@ -22,10 +22,10 @@ export  function Login() {
           }
         );
 
-        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("userId", response.data.id);
         alert("Login realizado com sucesso!");
-
         window.location.href = "/chat";
+
     } catch (error) {
        alert("Email ou senha inválidos");
         console.error(error);

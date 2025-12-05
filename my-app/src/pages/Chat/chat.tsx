@@ -1,15 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styles from "./Chat.module.css";
+import { UserId } from "../../components/UserId/user";
 
 export function Chat() {
   const [messages, setMessages] = useState<string[]>([]);
   const [text, setText] = useState("");
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      window.location.href = "/";
-    }
-  }, []);
 
   function handleLogout() {
     localStorage.removeItem("token");
@@ -28,7 +23,8 @@ export function Chat() {
     <div className={styles.container}>
       <div className={styles.chatBox}>
         <div className={styles.header}>
-          <h2 className={styles.title}>💬 Chat Simples</h2>        
+          <h2 className={styles.title}>💬 Chat Simples</h2>  
+          <UserId />      
           <button 
             onClick={handleLogout} 
             className={styles.logoutButton}
